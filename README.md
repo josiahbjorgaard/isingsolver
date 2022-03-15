@@ -21,13 +21,18 @@ Usage Examples:
 ## Input file example
 
 ```
-c This is an extra-hard problem
+c This is a comment
 p test04 3 4
 0 1 1
 1 2 1
 0 0 -1
 1 1 -1
 ```
+
+### Input structure
+* lines starting with `c` are comment lines
+* one line starting with `p` is a problem definition - the structure is `p <name> <number of spins> <number of coefficients>
+* each following line defines a weight for a coefficient, structured like `i j w` where `i`, `j` are the indices and `w=1,-1` are the weights
 
 ## Test Case Generator
 
