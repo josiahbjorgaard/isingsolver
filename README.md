@@ -57,6 +57,22 @@ for num in `seq 0 10000 1000000`; do
 done
 ```
 
+## Help Output
+```
+usage: isingtree.py [-h] -i PATHTOINPUTFILE [-r [ROOTNODE]] [-v]
+
+Solves the ground state configuration for Ising Model on an N-ary Tree
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -i PATHTOINPUTFILE, --input PATHTOINPUTFILE
+                        Input File Path, input file has specific format
+                        requirements. See README.md for examples.
+  -r [ROOTNODE], --root [ROOTNODE]
+                        Specify node number to use as root node, must be less
+                        than total number of nodes
+  -v, --verbose         Enable verbose logging
+```
 ## Unit Test
 
 Install pytest `pip3 install -r requirements-dev.txt`.
