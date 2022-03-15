@@ -20,8 +20,8 @@ Usage Examples:
 
 ## Input File Structure
 * lines starting with `c` are comment lines
-* one line starting with `p` is a problem definition - the structure is `p <name> <number of spins> <number of coefficients>`
-* each following line defines a weight for a coefficient, structured like `i j w` where `i`, `j` are the indices and `w=1,-1` are the weights
+* one line starting with `p` is a problem definition - the structure is `p <name> <N_S = number of spins> <N_C = number of coefficients>`
+* each following line defines a weight for a coefficient, structured like `i j w` where `i,j < N_S` are the indices and `w=1,-1` are the weights
 
 ## Input file example
 
