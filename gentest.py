@@ -27,6 +27,10 @@ def main(name, nspins, mwidth, xrandom):
         lines=list()
         m=0
         for n in range(nspins):
+            h = random.randint(-xrandom,xrandom)
+            if h !=0:
+                lines.append("{} {} {}\n".format(n, n, h))
+        for n in range(nspins):
             width=mwidth + random.randint(-xrandom,xrandom)
             if width < 0:
                 if n > 2:
@@ -42,10 +46,6 @@ def main(name, nspins, mwidth, xrandom):
                 lines.append("{} {} {}\n".format(n, m, J))
             if m >= nspins:
                 break
-        for n in range(nspins):
-            h = random.randint(-xrandom,xrandom)
-            if h !=0:
-                lines.append("{} {} {}\n".format(n, n, h))
         nlines=len(lines)
         lines.insert(0,"# This is a test problem: inputs are nspins={} mwidth={} xrandom={}\n".format(nspins,mwidth,xrandom))
         for line in lines:

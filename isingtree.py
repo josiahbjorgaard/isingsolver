@@ -117,9 +117,9 @@ def main(filename, n=0):
     for n in range(len(spindict)):
         spin = spindict[n]
         if spin == -1:
-            spinstr += 'D'
+            spinstr += '↓'
         elif spin == 1:
-            spinstr += 'U'
+            spinstr += '↑'
         else:
             spinstr += 'X'
     print(spinstr)
