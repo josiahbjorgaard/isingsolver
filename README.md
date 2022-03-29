@@ -26,13 +26,13 @@ Usage Examples:
 ## Input file example
 
 ```
-#J Couplings
-0 1 1
-1 2 1
+#Example
 #h
 0 0 -1
 1 1 -1
-# Example
+#J Couplings
+0 1 1
+1 2 1
 ```
 
 ## Test Case Generator
