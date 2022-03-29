@@ -47,8 +47,7 @@ def main(name, nspins, mwidth, xrandom):
             if h !=0:
                 lines.append("{} {} {}\n".format(n, n, h))
         nlines=len(lines)
-        lines.insert(0,"p {} {} {}\n".format(name, nspins, nlines))
-        lines.insert(0,"c This is a test problem: inputs are nspins={} mwidth={} xrandom={}\n".format(nspins,mwidth,xrandom))
+        lines.insert(0,"# This is a test problem: inputs are nspins={} mwidth={} xrandom={}\n".format(nspins,mwidth,xrandom))
         for line in lines:
             f.write(line)
     return

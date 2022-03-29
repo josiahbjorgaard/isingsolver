@@ -14,7 +14,7 @@ Usage Examples:
     ./isingtree.py -i my_test_1000 -r 29 --verbose
 """
 
-from solver import Data, Node
+from ising.solver import Node
 import argparse
 import logging
 import sys
@@ -30,44 +30,13 @@ def loadinput(inputfilepath):
     logging.info("Loading input from " + inputfilepath)
     with open(inputfilepath, "r") as f:
         lines = [line.rstrip() for line in f.readlines()
-                    if not line.startswith('c')]
+                    if not line.startswith(('#','c','C','%','!'))]
     if len(lines) < 1:
         raise InputError(lines, "Less than 1 non-comment line read from input")
     pline = lines.pop(0).split()
-    if pline[0] != 'p':
-        raise InputError(pline, "First non-comment line does \
-                                    not start with \'p\'")
-    elif len(pline) != 4:
-        raise InputError(pline, "Fist non-comment line does not have 4 \
-                                    elements separated by white space")
-    try:
-        pname=str(pline[1])
-    except ValueError as err:
-        logging.error("Problem name not able to read as string")
-        logging.error(err.args)
-    try:
-        nnodes=int(pline[2])
-    except ValueError as err:
-        logging.error("Number of nodes not able to read as integer")
-        logging.error(err.args)
-    try:
-        nedges=int(pline[3])
-    except ValueError as err:
-        logging.error("Number of edges not able to read as integer")
-        logging.error(err.args)
-    if len(lines) != nedges:
-        raise InputError(nedges, "Number of input lines does not equal \
-                                specified number of edges")
-    data = Data(pname, nnodes, nedges)
-    logging.info("Loaded problem line for name: {}, nnodes: {}, \
-                    nedges {}".format(pname, nnodes, nedges))
-
-    # First item from input
-    startNode = lines[0][0]
 
     # Gather all h, J values
-    # TODO: Don't put zeros here
-    nodes=dict(zip(range(0, nnodes), [0] * nnodes))
+    nodes={}
     edges={}
 
     for nline, line in enumerate(lines):
@@ -93,6 +62,11 @@ def loadinput(inputfilepath):
                 edges[lsplit[1]][lsplit[0]] = lsplit[2]
             else:
                 edges[lsplit[1]] = {lsplit[0]: lsplit[2]}
+            # add node h=0 if not specified explicitly
+            if lsplit[0] not in nodes.keys():
+                nodes[lsplit[0]] = 0
+            if lsplit[1] not in nodes.keys():
+                nodes[lsplit[1]] = 0
 
     return nodes, edges
 
@@ -125,6 +99,11 @@ def main(filename, n=0):
         6.) print results to stdout
     """
     nodes, edges = loadinput(filename)
+    # FIXME: Dictionaries need to be ordered
+    nodes = dict(sorted(nodes.items()))
+    edges = dict(sorted(edges.items()))
+    print(nodes)
+    print(edges)
     if n > len(nodes)-1:
         raise ValueError("n must be less than number of nodes - 1")
     root = Node(n)
@@ -134,14 +113,15 @@ def main(filename, n=0):
     res=root.set_minE_spin(spindict)
     print(res)
     spinstr=str()
+    print(spindict)
     for n in range(len(spindict)):
         spin = spindict[n]
         if spin == -1:
-            spinstr += '-'
+            spinstr += 'D'
         elif spin == 1:
-            spinstr += '+'
+            spinstr += 'U'
         else:
-            spinstr += '?'
+            spinstr += 'X'
     print(spinstr)
     return
 

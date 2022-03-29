@@ -21,17 +21,18 @@ Usage Examples:
 ## Input File Structure
 * lines starting with `c` are comment lines
 * one line starting with `p` is a problem definition - the structure is `p <name> <N_S = number of spins> <N_C = number of coefficients>`
-* each following line defines a weight for a coefficient, structured like `i j w` where `i,j < N_S` are the indices and `w=1,-1` are the weights
+* each following line defines a weight for a coefficient, structured like `i j w` where `i,j < N_S` are the indices and `w` are the weights
 
 ## Input file example
 
 ```
-c This is a comment
-p test04 3 4
+#J Couplings
 0 1 1
 1 2 1
+#h
 0 0 -1
 1 1 -1
+# Example
 ```
 
 ## Test Case Generator

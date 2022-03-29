@@ -1,6 +1,0 @@
-c This is an extra-hard problem
-p test04 3 4
-0 1 1
-1 2 1
-0 0 -1
-1 1 -1
