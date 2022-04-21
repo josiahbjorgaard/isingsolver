@@ -5,7 +5,7 @@ It is built for use with Python 3.7 or greater.
 There are three main components
 * isingtree.py - the main executable file for command line execution
 * solver.py - contains methods for solving the ising model minimization
-* gentest.py - generate valid test cases for large Ising models on N-ary trees
+* gentree.py - generate valid trees for large Ising models on N-ary trees
 
 # Install/Usage
 The only non-standard module required is argparse. Install using
