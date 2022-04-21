@@ -1,5 +1,5 @@
 import pytest
-from solver import Node
+from .solver import Node
 
 def test_add_node():
     node = Node(0)
