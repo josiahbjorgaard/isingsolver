@@ -34,9 +34,9 @@ Usage Examples:
 1 2 1
 ```
 
-## Test Case Generator
+## Input Generator
 
-Ising Model Tree - Test Input File Generator. This file contains a simple test generator for testing scale-up. The general execution is performed via command line.
+Ising Model Tree Input File Generator. This file contains a simple random input file generator for testing scale-up. The general execution is performed via command line.
 
 Usage Examples:
 ```
@@ -46,7 +46,7 @@ Usage Examples:
 ./gentest.py -n my_test_1000 -s 1000 -w 4 -x 2
 ```
 
-An example of automatically generated examples and test runs
+An example of automatically generated examples and testing scalability
 ```
 #!/bin/bash
 #Commands to run a range of test sizes
