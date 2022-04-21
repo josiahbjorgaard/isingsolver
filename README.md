@@ -1,7 +1,7 @@
 # Ising Model N-Ary Tree Energy Minimizer
 
 This is an Ising Model on N-Ary Tree Energy Minimizer. Input must be a valid N-ary tree.
-Tested with Python 3.8, not tested for compatibility with other versions.
+Presently tested with Python 3.8, not tested for compatibility with other versions.
 
 There are three main components
 * isingtree.py - the main executable file for command line execution
